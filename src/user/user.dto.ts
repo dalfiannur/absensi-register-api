@@ -1,4 +1,5 @@
 export interface UserDTO {
+  roleId: number
   departementId: number
   nik: string
   name: string

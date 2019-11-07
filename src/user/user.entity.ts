@@ -6,6 +6,9 @@ export class User {
   id: number
 
   @Column()
+  roleId: number
+
+  @Column()
   departementId: number
 
   @Column({

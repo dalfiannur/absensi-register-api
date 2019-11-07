@@ -36,6 +36,7 @@ export class UserController {
     });
 
     return await this.user.register({
+      roleId: 2,
       departementId: data.departementId,
       nik: data.nik,
       name: data.name,
