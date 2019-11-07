@@ -11,18 +11,16 @@ export class UserService {
     private readonly user: Repository<User>
   ) { }
 
-  async register(data: UserDTO) {
+  register(data: UserDTO) {
     return this.user.createQueryBuilder('user')
       .insert()
       .values(data)
       .execute()
   }
 
-  async checkNIK(nik: string) {
+  checkNIK(nik: string) {
     return this.user.createQueryBuilder('user')
-      .where('user.nik = :id', {
-        nik
-      })
+      .where(`user.nik = '${nik}'`)
       .getOne()
   }
 }

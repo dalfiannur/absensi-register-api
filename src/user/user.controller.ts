@@ -1,4 +1,4 @@
-import { Controller, Body, Query, Post, Get, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Body, Query, Post, Get, UseInterceptors, UploadedFile, Param, HttpException } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDTO } from './user.dto';
 import * as cloudinary from 'cloudinary';
@@ -54,10 +54,17 @@ export class UserController {
     })
   }
 
-  @Get('/check')
-  checkNIK(@Query() query: any) {
-    if (query.nik) {
-      return this.user.checkNIK(query.nik)
+  @Get('/nik/:nik')
+  async checkNIK(@Param('nik') nik: string) {
+    const user = await this.user.checkNIK(nik)
+    if (!user) {
+      return {
+        exist: false
+      }
+    }
+
+    return {
+      exist: true
     }
   }
 }
