@@ -55,7 +55,9 @@ export class UserController {
   }
 
   @Get('/check')
-  async checkNIK(@Query() query: any) {
-    return this.user.checkNIK(query.nik as string)
+  checkNIK(@Query() query: any) {
+    if (query.nik) {
+      return this.user.checkNIK(query.nik)
+    }
   }
 }
