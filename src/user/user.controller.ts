@@ -45,9 +45,9 @@ export class UserController {
       cloudinary.v2.uploader.upload(file.path, {
         crop: "crop",
         tags: "avatars",
-        gravity: "faces",
+        gravity: "auto",
         width: 200,
-        height: 300
+        height: 250
       }, (result) => {
         console.log(result)
       });
