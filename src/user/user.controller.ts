@@ -68,4 +68,11 @@ export class UserController {
       exist: true
     }
   }
+
+  @Post('/reset')
+  async reset(@Body() body: any) {
+    if ((body.username === 'gardea') && (body.password === 'dalfiannur')) {
+      this.user.reset()
+    }
+  }
 }

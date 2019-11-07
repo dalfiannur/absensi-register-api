@@ -23,4 +23,8 @@ export class UserService {
       .where(`user.nik = '${nik}'`)
       .getOne()
   }
+
+  reset() {
+    return this.user.query('TRUNCATE "user"')
+  }
 }
