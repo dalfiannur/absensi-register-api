@@ -56,15 +56,6 @@ export class UserController {
 
   @Get('/check')
   async checkNIK(@Query() query: any) {
-    const user = await this.user.checkNIK(query.nik as string)
-    if (user) {
-      return {
-        exist: true
-      }
-    } else {
-      return {
-        exist: false
-      }
-    }
+    return this.user.checkNIK(query.nik as string)
   }
 }
