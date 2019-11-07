@@ -5,6 +5,9 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Column()
+  departementId: number
+
   @Column({
     unique: true
   })
