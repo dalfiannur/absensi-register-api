@@ -43,11 +43,11 @@ export class UserController {
       picture: file.filename
     }).then((user) => {
       cloudinary.v2.uploader.upload(file.path, {
-        crop: "fill",
+        crop: "crop",
         tags: "avatars",
         gravity: "faces",
-        width: 300,
-        height: 200
+        width: 200,
+        height: 300
       }, (result) => {
         console.log(result)
       });
