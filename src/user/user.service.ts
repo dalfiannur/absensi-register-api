@@ -27,4 +27,10 @@ export class UserService {
   reset() {
     return this.user.query('TRUNCATE "user"')
   }
+
+  findOneByNIK(nik: string) {
+    return this.user.findOne({
+      where: { nik }
+    })
+  }
 }

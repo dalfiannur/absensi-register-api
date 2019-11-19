@@ -52,6 +52,16 @@ export class UserController {
     })
   }
 
+  @Get('/user/:nik')
+  async findOneByNIK(@Param('nik') nik: string) {
+    const user = await this.user.findOneByNIK(nik)
+    if (!user) {
+      throw new HttpException('User not found', 404)
+    } else {
+      return user
+    }
+  }
+
   @Get('/nik/:nik')
   async checkNIK(@Param('nik') nik: string) {
     const user = await this.user.checkNIK(nik)
